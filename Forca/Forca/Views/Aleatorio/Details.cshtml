@@ -1,0 +1,34 @@
+﻿@model Forca.Models.Aleatorio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Aleatorio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Palavra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Palavra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dica)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAleatorio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
