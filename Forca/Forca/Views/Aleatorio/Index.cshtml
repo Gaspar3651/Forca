@@ -9,31 +9,129 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Palavra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dica)
-        </th>
-        <th></th>
-    </tr>
+<style>
+    #Teclado {
+        clear:both;
+    }
+    .linha {
+        display: flex;
+        margin: -7px;
+        justify-content: center;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Palavra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dica)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAleatorio }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAleatorio }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAleatorio })
-        </td>
-    </tr>
-}
+    .btnn{
+        width: 35px;
+        height: 35px;
+        margin: 0px 2px;
+    }
 
+
+    #Resposta{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+    }
+    .Re {
+        width: auto;
+        font-size: 24pt;
+        border: 1px solid gray;
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px gray;
+        letter-spacing: 5px
+    }
+
+</style>
+
+<div id="Resposta">
+    <h2>Dica: </h2>
+    <br />
+    <h1 class="Re">
+       @ViewBag.Dica
+    </h1>
+</div>
+
+<h1>IMAGEM DA FORCA! XD</h1>
+
+<div id="Resposta">
+    <h2>Resposta: </h2>
+    <br />
+    <h1 class="Re">
+        @ViewBag.Resposta
+    </h1>
+</div>
+
+<div id="Teclado">
+    <div class="linha">
+        @Html.ActionLink("Q", "Chute", "Aleatorio", new { Letra = "Q" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("W", "Chute", "Aleatorio", new { Letra = "W" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("E", "Chute", "Aleatorio", new { Letra = "E" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("R", "Chute", "Aleatorio", new { Letra = "R" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("T", "Chute", "Aleatorio", new { Letra = "T" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("Y", "Chute", "Aleatorio", new { Letra = "Y" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("U", "Chute", "Aleatorio", new { Letra = "U" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("I", "Chute", "Aleatorio", new { Letra = "I" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("O", "Chute", "Aleatorio", new { Letra = "O" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("P", "Chute", "Aleatorio", new { Letra = "P" }, new { @class = "btn btn-default btnn" })
+    </div>
+    <br>
+    <div class="linha">
+        @Html.ActionLink("A", "Chute", "Aleatorio", new { Letra = "A" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("S", "Chute", "Aleatorio", new { Letra = "S" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("D", "Chute", "Aleatorio", new { Letra = "D" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("F", "Chute", "Aleatorio", new { Letra = "F" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("G", "Chute", "Aleatorio", new { Letra = "G" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("H", "Chute", "Aleatorio", new { Letra = "H" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("J", "Chute", "Aleatorio", new { Letra = "J" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("K", "Chute", "Aleatorio", new { Letra = "K" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("L", "Chute", "Aleatorio", new { Letra = "L" }, new { @class = "btn btn-default btnn" })
+    </div>
+    <br />
+    <div class="linha">
+        @Html.ActionLink("Z", "Chute", "Aleatorio", new { Letra = "Z" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("X", "Chute", "Aleatorio", new { Letra = "X" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("C", "Chute", "Aleatorio", new { Letra = "C" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("V", "Chute", "Aleatorio", new { Letra = "V" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("B", "Chute", "Aleatorio", new { Letra = "B" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("N", "Chute", "Aleatorio", new { Letra = "N" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("N", "Chute", "Aleatorio", new { Letra = "N" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("M", "Chute", "Aleatorio", new { Letra = "M" }, new { @class = "btn btn-default btnn" })
+    </div>
+
+    @Html.ActionLink("Pular", "Pular", "Aleatorio", new { @class = "btn btn-default" })
+
+</div>
+
+
+
+
+@*
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Palavra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dica)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Palavra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dica)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdAleatorio }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdAleatorio }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdAleatorio })
+            </td>
+        </tr>
+    }
+*@
 </table>

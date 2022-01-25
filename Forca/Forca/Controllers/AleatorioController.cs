@@ -14,18 +14,83 @@ namespace Forca.Controllers
     public class AleatorioController : Controller
     {
         private ForcaEntities db = new ForcaEntities();
-        SqlConnection conexao = new SqlConnection(@"data source = DESKTOP-UI0D29V\SQLEXPRESS; Integrated Security = SSPI; Initial Catalog = Forca;");
-        
+        SqlConnection conexao = new SqlConnection(@"data source = (local)\SQLEXPRESS; Integrated Security = SSPI; Initial Catalog = Forca;");
+
+        static string Palavra, Dica, PalavraSelecionada;
 
         // GET: Aleatorio
         public ActionResult Index()
         {
-            conexao.Open();
-
-
-            conexao.Close();
+            if (Palavra == null)
+            {
+                Pular();
+            }
+            ViewBag.Resposta = Palavra;
+            ViewBag.Dica = Dica;
             return View(db.Aleatorio.ToList());
         }
+
+
+
+        public ActionResult Chute(string Letra)
+        {
+            Char[] Alterar = Palavra.ToCharArray();
+
+            for (int i = 0; i < PalavraSelecionada.Length; i++)
+            {
+                string Let = PalavraSelecionada[i].ToString();
+
+                if (Letra.Equals(Let))
+                {
+                    Alterar[i] = Char.Parse(Letra);
+                }
+            }
+            Palavra = new string(Alterar);
+
+            if (Palavra.Equals(PalavraSelecionada))
+            {
+                // MENSAGEM DE PARABÉNS
+
+                Pular();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Pular()
+        {
+            Palavra = "";
+            conexao.Open();
+
+            string SqlCmd = String.Format("SELECT TOP 1 * " +
+                                          "FROM Aleatorio " +
+                                          "ORDER BY NEWID()");
+            SqlCommand Cmd = new SqlCommand(SqlCmd, conexao);
+            SqlDataReader Dados = Cmd.ExecuteReader();
+
+            while (Dados.Read())
+            {
+                PalavraSelecionada = Dados["Palavra"].ToString();
+                Dica = Dados["Dica"].ToString();
+            }
+
+            Dados.Close();
+            conexao.Close();
+
+
+            for (int i = 0; i < PalavraSelecionada.Length; i++)
+            {
+                Palavra += ("_");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Erros()
+        {
+
+            return RedirectToAction("Index");
+        }
+
 
         // GET: Aleatorio/Details/5
         public ActionResult Details(int? id)

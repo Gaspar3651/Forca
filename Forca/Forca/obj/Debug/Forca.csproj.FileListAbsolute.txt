@@ -101,6 +101,7 @@ C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\bin\Microsoft.O
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\obj\Debug\Forca.csproj.AssemblyReference.cache
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\obj\Debug\Forca.csproj.CoreCompileInputs.cache
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\obj\Debug\Forca.csproj.CopyComplete
 C:\Users\andri\Downloads\Estudos\Virei Dev\CODE\.NET\Forca\Forca\obj\Debug\Forca.dll
