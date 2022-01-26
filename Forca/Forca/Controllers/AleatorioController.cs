@@ -6,7 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Windows;
 using Forca.Models;
 
 namespace Forca.Controllers
@@ -17,6 +19,7 @@ namespace Forca.Controllers
         SqlConnection conexao = new SqlConnection(@"data source = (local)\SQLEXPRESS; Integrated Security = SSPI; Initial Catalog = Forca;");
 
         static string Palavra, Dica, PalavraSelecionada;
+        static int ContErros = 0;
 
         // GET: Aleatorio
         public ActionResult Index()
@@ -25,6 +28,13 @@ namespace Forca.Controllers
             {
                 Pular();
             }
+
+            if (ContErros == 6)
+            {
+                MessageBox.Show("Você perdeu ;-;");
+                Pular();
+            }
+
             ViewBag.Resposta = Palavra;
             ViewBag.Dica = Dica;
             return View(db.Aleatorio.ToList());
@@ -35,7 +45,9 @@ namespace Forca.Controllers
         public ActionResult Chute(string Letra)
         {
             Char[] Alterar = Palavra.ToCharArray();
+            string Comparar = Palavra;
 
+            // ########## EXIBINDO A LETRA SE ELA EXISTIR NA PALAVRA ##########
             for (int i = 0; i < PalavraSelecionada.Length; i++)
             {
                 string Let = PalavraSelecionada[i].ToString();
@@ -47,14 +59,22 @@ namespace Forca.Controllers
             }
             Palavra = new string(Alterar);
 
+            // ########## VERIFICANDO SE ERROU ##########
+            if (Comparar.Equals(Palavra))
+            {
+                ContErros++;
+            }
+
+            // ########## DANDO OS PARABÉNS ##########
             if (Palavra.Equals(PalavraSelecionada))
             {
-                // MENSAGEM DE PARABÉNS
+                MessageBox.Show("Parabéns, você conseguiu !!! \n A palavra era " + PalavraSelecionada);
 
                 Pular();
             }
             return RedirectToAction("Index");
         }
+
 
         public ActionResult Pular()
         {
@@ -82,15 +102,48 @@ namespace Forca.Controllers
                 Palavra += ("_");
             }
 
+            ContErros = 0;
+
             return RedirectToAction("Index");
         }
 
-        public ActionResult Erros()
+
+        public void Erros()
         {
+            string local = "~/Views/Img/Forca-01.jpg";
 
-            return RedirectToAction("Index");
+            switch (ContErros)
+            {
+                case 1:
+                    local = "~/Views/Img/Forca-02.jpg";
+                    break;
+                case 2:
+                    local = "~/Views/Img/Forca-03.jpg";
+                    break;
+                case 3:
+                    local = "~/Views/Img/Forca-04.jpg";
+                    break;
+                case 4:
+                    local = "~/Views/Img/Forca-05.jpg";
+                    break;
+                case 5:
+                    local = "~/Views/Img/Forca-06.jpg";
+                    break;
+                case 6:
+                    local = "~/Views/Img/Forca-07.jpg";
+                    break;
+
+                default:
+                    break;
+            }
+
+            WebImage wbImage = new WebImage(local);
+            wbImage.Resize(350, 386);
+            wbImage.FileName = "img.jpg";
+            wbImage.Write();
+
+            
         }
-
 
         // GET: Aleatorio/Details/5
         public ActionResult Details(int? id)
@@ -206,5 +259,8 @@ namespace Forca.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        
     }
 }

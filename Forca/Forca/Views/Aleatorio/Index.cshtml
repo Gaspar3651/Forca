@@ -3,12 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <style>
     #Teclado {
         clear:both;
@@ -32,6 +26,12 @@
         align-items: center;
         margin: 50px;
     }
+    #Dica {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+    }
     .Re {
         width: auto;
         font-size: 24pt;
@@ -41,26 +41,40 @@
         box-shadow: inset 0px 0px 5px gray;
         letter-spacing: 5px
     }
+    #IMG{
+        float: left;
+    }
+
+    #ReDi {
+        float: left;
+    }
 
 </style>
 
-<div id="Resposta">
-    <h2>Dica: </h2>
-    <br />
-    <h1 class="Re">
-       @ViewBag.Dica
-    </h1>
+
+<div>
+    <img src="@Url.Action("Erros")" alt="" id="IMG" />
 </div>
 
-<h1>IMAGEM DA FORCA! XD</h1>
+<div id="ReDi">
+    <div id="Dica">
+        <h2>Dica: </h2>
+        <br />
+        <h1 class="Re">
+            @ViewBag.Dica
+        </h1>
+    </div>
 
-<div id="Resposta">
-    <h2>Resposta: </h2>
-    <br />
-    <h1 class="Re">
-        @ViewBag.Resposta
-    </h1>
+    <div id="Resposta">
+        <h2>Resposta: </h2>
+        <br />
+        <h1 class="Re">
+            @ViewBag.Resposta
+        </h1>
+    </div>
 </div>
+
+
 
 <div id="Teclado">
     <div class="linha">
