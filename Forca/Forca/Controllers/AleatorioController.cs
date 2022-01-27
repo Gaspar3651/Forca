@@ -20,6 +20,7 @@ namespace Forca.Controllers
 
         static string Palavra, Dica, PalavraSelecionada;
         static int ContErros = 0;
+        static int VerificarResposta;
 
         // GET: Aleatorio
         public ActionResult Index()
@@ -29,14 +30,26 @@ namespace Forca.Controllers
                 Pular();
             }
 
-            if (ContErros == 6)
+            
+            // ########## DANDO OS PARABÉNS ##########
+            if (Palavra.Equals(PalavraSelecionada))
             {
-                MessageBox.Show("Você perdeu ;-;");
+                VerificarResposta = 1;
                 Pular();
+            }
+            else if(ContErros == 6)
+            {
+                VerificarResposta = 2;
+                Pular();
+            }
+            else
+            {
+                VerificarResposta = 0;
             }
 
             ViewBag.Resposta = Palavra;
             ViewBag.Dica = Dica;
+            ViewBag.VerificarResposta = VerificarResposta;
             return View(db.Aleatorio.ToList());
         }
 
@@ -54,7 +67,31 @@ namespace Forca.Controllers
 
                 if (Letra.Equals(Let))
                 {
-                    Alterar[i] = Char.Parse(Letra);
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if ((Let.Equals("Á") || Let.Equals("Â") || Let.Equals("Ã")) && Letra.Equals("A"))
+                {
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if ((Let.Equals("É") || Let.Equals("Ê")) && Letra.Equals("E"))
+                {
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if (Let.Equals("Í") && Letra.Equals("I"))
+                {
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if ((Let.Equals("Ó") || Let.Equals("Ô") || Let.Equals("Õ")) && Letra.Equals("O"))
+                {
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if (Let.Equals("Ú") && Letra.Equals("U"))
+                {
+                    Alterar[i] = Char.Parse(Let);
+                }
+                else if (Let.Equals("Ç") && Letra.Equals("C"))
+                {
+                    Alterar[i] = Char.Parse(Let);
                 }
             }
             Palavra = new string(Alterar);
@@ -65,13 +102,9 @@ namespace Forca.Controllers
                 ContErros++;
             }
 
-            // ########## DANDO OS PARABÉNS ##########
-            if (Palavra.Equals(PalavraSelecionada))
-            {
-                MessageBox.Show("Parabéns, você conseguiu !!! \n A palavra era " + PalavraSelecionada);
+            
+            
 
-                Pular();
-            }
             return RedirectToAction("Index");
         }
 
@@ -182,7 +215,7 @@ namespace Forca.Controllers
             
 
             conexao.Close();
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
 
         // GET: Aleatorio/Edit/5

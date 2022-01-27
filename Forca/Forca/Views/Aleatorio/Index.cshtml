@@ -5,33 +5,36 @@
 }
 <style>
     #Teclado {
-        clear:both;
+        clear: both;
     }
+
     .linha {
         display: flex;
         margin: -7px;
         justify-content: center;
     }
 
-    .btnn{
+    .btnn {
         width: 35px;
         height: 35px;
         margin: 0px 2px;
     }
 
 
-    #Resposta{
-        display:flex;
+    #Resposta {
+        display: flex;
         justify-content: center;
         align-items: center;
         margin: 50px;
     }
+
     #Dica {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 50px;
     }
+
     .Re {
         width: auto;
         font-size: 24pt;
@@ -41,15 +44,31 @@
         box-shadow: inset 0px 0px 5px gray;
         letter-spacing: 5px
     }
-    #IMG{
+
+    #IMG {
         float: left;
     }
 
     #ReDi {
         float: left;
     }
-
 </style>
+@if (ViewBag.VerificarResposta == 0)
+{
+
+}
+else if (ViewBag.VerificarResposta == 1)
+{
+    <script>
+        alert("Parabéns, você acertou a palavra!!!");
+    </script>
+}
+else if (ViewBag.VerificarResposta == 2)
+{
+    <script>
+        alert("Você perdeu :(");
+    </script>
+}
 
 
 <div>
@@ -116,6 +135,7 @@
     @Html.ActionLink("Pular", "Pular", "Aleatorio", new { @class = "btn btn-default" })
 
 </div>
+
 
 
 
