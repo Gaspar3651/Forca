@@ -240,13 +240,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Img\Forca-01.jpg" />
-    <Content Include="Views\Img\Forca-02.jpg" />
-    <Content Include="Views\Img\Forca-03.jpg" />
-    <Content Include="Views\Img\Forca-04.jpg" />
-    <Content Include="Views\Img\Forca-05.jpg" />
-    <Content Include="Views\Img\Forca-06.jpg" />
-    <Content Include="Views\Img\Forca-07.jpg" />
+    <Content Include="Views\Home\Style.css" />
+    <Content Include="Views\Img\Forca-01.png" />
+    <Content Include="Views\Img\Forca-02.png" />
+    <Content Include="Views\Img\Forca-03.png" />
+    <Content Include="Views\Img\Forca-04.png" />
+    <Content Include="Views\Img\Forca-05.png" />
+    <Content Include="Views\Img\Forca-06.png" />
+    <Content Include="Views\Img\Forca-07.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

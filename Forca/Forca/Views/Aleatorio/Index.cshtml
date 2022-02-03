@@ -1,74 +1,14 @@
 ﻿@model IEnumerable<Forca.Models.Aleatorio>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Palavras Diversas";
 }
-<style>
-    #Teclado {
-        clear: both;
-    }
 
-    .linha {
-        display: flex;
-        margin: -7px;
-        justify-content: center;
-    }
-
-    .btnn {
-        width: 35px;
-        height: 35px;
-        margin: 0px 2px;
-    }
+@Styles.Render("~/Content/Site.css")
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
-    #Resposta {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 50px;
-    }
 
-    #Dica {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 50px;
-    }
-
-    .Re {
-        width: auto;
-        font-size: 24pt;
-        border: 1px solid gray;
-        padding: 5px;
-        border-radius: 10px;
-        box-shadow: inset 0px 0px 5px gray;
-        letter-spacing: 5px
-    }
-
-    #IMG {
-        float: left;
-    }
-
-    #ReDi {
-        float: left;
-    }
-</style>
-@if (ViewBag.VerificarResposta == 0)
-{
-
-}
-else if (ViewBag.VerificarResposta == 1)
-{
-    <script>
-        alert("Parabéns, você acertou a palavra!!!");
-    </script>
-}
-else if (ViewBag.VerificarResposta == 2)
-{
-    <script>
-        alert("Você perdeu :(");
-    </script>
-}
 
 
 <div>
@@ -92,7 +32,68 @@ else if (ViewBag.VerificarResposta == 2)
         </h1>
     </div>
 </div>
+@*
+    <div data-aos="flip-left"
+         data-aos-easing="ease-out-cubic"
+         data-aos-duration="2000" id="Mensagem">
+        <p>Parabéns, você acertou a palavra !!!</p>
+    </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+    </script>
+*@
+@if (ViewBag.VerificarResposta == 0)
+{
+
+}
+else if (ViewBag.VerificarResposta == 1)
+{
+    <div data-aos="zoom-in-up"
+         data-aos-duration="1000" id="Mensagem">
+        <p>Parabéns, você acertou a palavra !!!</p>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+        setTimeout(function () {
+            location.reload();
+        }, 2000);
+
+    </script>
+
+}
+else if (ViewBag.VerificarResposta == 2)
+{
+    <style>
+        #Mensagem {
+            background-color: Tomato;
+        }
+    </style>
+    <div data-aos="zoom-in-up"
+         data-aos-duration="1000"
+         id="Mensagem">
+        <p>Você perdeu :(</p>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+
+        setTimeout(function () {
+            location.reload();
+        }, 3000);
+
+    </script>
+}
 
 
 <div id="Teclado">
@@ -128,44 +129,9 @@ else if (ViewBag.VerificarResposta == 2)
         @Html.ActionLink("V", "Chute", "Aleatorio", new { Letra = "V" }, new { @class = "btn btn-default btnn" })
         @Html.ActionLink("B", "Chute", "Aleatorio", new { Letra = "B" }, new { @class = "btn btn-default btnn" })
         @Html.ActionLink("N", "Chute", "Aleatorio", new { Letra = "N" }, new { @class = "btn btn-default btnn" })
-        @Html.ActionLink("N", "Chute", "Aleatorio", new { Letra = "N" }, new { @class = "btn btn-default btnn" })
         @Html.ActionLink("M", "Chute", "Aleatorio", new { Letra = "M" }, new { @class = "btn btn-default btnn" })
     </div>
 
     @Html.ActionLink("Pular", "Pular", "Aleatorio", new { @class = "btn btn-default" })
 
 </div>
-
-
-
-
-
-@*
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Palavra)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dica)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Palavra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dica)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdAleatorio }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IdAleatorio }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IdAleatorio })
-            </td>
-        </tr>
-    }
-*@
-</table>

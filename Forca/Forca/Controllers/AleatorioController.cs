@@ -143,27 +143,27 @@ namespace Forca.Controllers
 
         public void Erros()
         {
-            string local = "~/Views/Img/Forca-01.jpg";
+            string local = "~/Views/Img/Forca-01.png";
 
             switch (ContErros)
             {
                 case 1:
-                    local = "~/Views/Img/Forca-02.jpg";
+                    local = "~/Views/Img/Forca-02.png";
                     break;
                 case 2:
-                    local = "~/Views/Img/Forca-03.jpg";
+                    local = "~/Views/Img/Forca-03.png";
                     break;
                 case 3:
-                    local = "~/Views/Img/Forca-04.jpg";
+                    local = "~/Views/Img/Forca-04.png";
                     break;
                 case 4:
-                    local = "~/Views/Img/Forca-05.jpg";
+                    local = "~/Views/Img/Forca-05.png";
                     break;
                 case 5:
-                    local = "~/Views/Img/Forca-06.jpg";
+                    local = "~/Views/Img/Forca-06.png";
                     break;
                 case 6:
-                    local = "~/Views/Img/Forca-07.jpg";
+                    local = "~/Views/Img/Forca-07.png";
                     break;
 
                 default:
@@ -172,7 +172,7 @@ namespace Forca.Controllers
 
             WebImage wbImage = new WebImage(local);
             wbImage.Resize(350, 386);
-            wbImage.FileName = "img.jpg";
+            wbImage.FileName = "img.png";
             wbImage.Write();
 
             
