@@ -1,0 +1,112 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #B0E0E6;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+
+/* ########## INDEX DO ALEATORIO ########## */
+#Teclado {
+    clear: both;
+}
+
+.linha {
+    display: flex;
+    margin: -7px;
+    justify-content: center;
+}
+
+.btnn {
+    width: 35px;
+    height: 35px;
+    margin: 0px 2px;
+}
+.btn {
+    box-shadow: 2px 2px 5px black;
+}
+
+
+#Resposta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+#Dica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.Re {
+    width: auto;
+    font-size: 24pt;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px gray;
+    letter-spacing: 5px
+}
+
+#IMG {
+    float: left;
+}
+
+#ReDi {
+    float: left;
+}
+
+#Mensagem {
+    display: flex;
+    width: 450px;
+    height: 160px;
+    border-radius: 20px;
+    align-items: center;
+    background-color: LimeGreen;
+    position: absolute;
+    margin: 10% 25%;
+    box-shadow: inset 0px 0px 15px black;
+}
+
+#Mensagem p {
+    margin: auto;
+    color: black;
+    font-size: 18pt;
+}
+
+
+
+
+
+/* ########## INDEX DO HOME ########## */
+.jumbotron {
+    background-image: linear-gradient(to left, #A020F0, #00BFFF, #4682B4 );
+    box-shadow: 10px 10px 5px black;
+    margin-top: 16px;
+    border: 8px solid #E0FFFF;
+}
+

@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Forca.Models.Aleatorio>
+
+@{
+    ViewBag.Title = "Palavras Diversas";
+}
+
+@Styles.Render("~/Content/Site.css")
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+
+
+<div>
+    <img src="@Url.Action("Erros")" alt="" id="IMG" />
+</div>
+
+<div id="ReDi">
+    <div id="Dica">
+        <h2>Dica: </h2>
+        <br />
+        <h1 class="Re">
+            @ViewBag.Dica
+        </h1>
+    </div>
+
+    <div id="Resposta">
+        <h2>Resposta: </h2>
+        <br />
+        <h1 class="Re">
+            @ViewBag.Resposta
+        </h1>
+    </div>
+</div>
+@*
+    <div data-aos="flip-left"
+         data-aos-easing="ease-out-cubic"
+         data-aos-duration="2000" id="Mensagem">
+        <p>Parabéns, você acertou a palavra !!!</p>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+    </script>
+*@
+@if (ViewBag.VerificarResposta == 0)
+{
+
+}
+else if (ViewBag.VerificarResposta == 1)
+{
+    <div data-aos="zoom-in-up"
+         data-aos-duration="1000" id="Mensagem">
+        <p>Parabéns, você acertou a palavra !!!</p>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+        setTimeout(function () {
+            location.reload();
+        }, 2000);
+
+    </script>
+
+}
+else if (ViewBag.VerificarResposta == 2)
+{
+    <style>
+        #Mensagem {
+            background-color: Tomato;
+        }
+    </style>
+    <div data-aos="zoom-in-up"
+         data-aos-duration="1000"
+         id="Mensagem">
+        <p>Você perdeu :(</p>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        AOS.init();
+
+
+        setTimeout(function () {
+            location.reload();
+        }, 3000);
+
+    </script>
+}
+
+
+<div id="Teclado">
+    <div class="linha">
+        @Html.ActionLink("Q", "Chute", "Aleatorio", new { Letra = "Q" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("W", "Chute", "Aleatorio", new { Letra = "W" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("E", "Chute", "Aleatorio", new { Letra = "E" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("R", "Chute", "Aleatorio", new { Letra = "R" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("T", "Chute", "Aleatorio", new { Letra = "T" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("Y", "Chute", "Aleatorio", new { Letra = "Y" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("U", "Chute", "Aleatorio", new { Letra = "U" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("I", "Chute", "Aleatorio", new { Letra = "I" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("O", "Chute", "Aleatorio", new { Letra = "O" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("P", "Chute", "Aleatorio", new { Letra = "P" }, new { @class = "btn btn-default btnn" })
+    </div>
+    <br>
+    <div class="linha">
+        @Html.ActionLink("A", "Chute", "Aleatorio", new { Letra = "A" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("S", "Chute", "Aleatorio", new { Letra = "S" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("D", "Chute", "Aleatorio", new { Letra = "D" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("F", "Chute", "Aleatorio", new { Letra = "F" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("G", "Chute", "Aleatorio", new { Letra = "G" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("H", "Chute", "Aleatorio", new { Letra = "H" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("J", "Chute", "Aleatorio", new { Letra = "J" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("K", "Chute", "Aleatorio", new { Letra = "K" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("L", "Chute", "Aleatorio", new { Letra = "L" }, new { @class = "btn btn-default btnn" })
+    </div>
+    <br />
+    <div class="linha">
+        @Html.ActionLink("Z", "Chute", "Aleatorio", new { Letra = "Z" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("X", "Chute", "Aleatorio", new { Letra = "X" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("C", "Chute", "Aleatorio", new { Letra = "C" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("V", "Chute", "Aleatorio", new { Letra = "V" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("B", "Chute", "Aleatorio", new { Letra = "B" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("N", "Chute", "Aleatorio", new { Letra = "N" }, new { @class = "btn btn-default btnn" })
+        @Html.ActionLink("M", "Chute", "Aleatorio", new { Letra = "M" }, new { @class = "btn btn-default btnn" })
+    </div>
+
+    @Html.ActionLink("Pular", "Pular", "Aleatorio", new { @class = "btn btn-default" })
+
+</div>
