@@ -132,7 +132,14 @@ namespace Forca.Controllers
 
             for (int i = 0; i < PalavraSelecionada.Length; i++)
             {
-                Palavra += ("_");
+                if (PalavraSelecionada[i] == ' ')
+                {
+                    Palavra += ' ';
+                }else
+                {
+
+                    Palavra += ("_");
+                }
             }
 
             ContErros = 0;
